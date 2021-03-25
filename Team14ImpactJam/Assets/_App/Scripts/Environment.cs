@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Environment : MonoBehaviour
 {
-    public int health;
-    private int maxHealth = 100;
+    public float health;
+    private float maxHealth = 100;
 
     private Color healthyColor = Color.white;
     private Color deadColor = new Color(35f/255, 23f/255, 9f/255); // dark brown color
     private Color currentColor;
+
+    [Range(0, 1)] public float t;
 
     // Start is called before the first frame update
     void Start()
