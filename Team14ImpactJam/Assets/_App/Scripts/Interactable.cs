@@ -5,12 +5,12 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public float radius = 10f;
-    public GameObject player; // must assign in inspector
-    bool hasInteracted = false;
+    private GameObject player;
+    private bool hasInteracted = false;
 
-    void Start()
+    void Awake()
     {
-
+        player = GameObject.FindObjectOfType<FirstPersonMovement>().gameObject;
     }
 
     void Update()
