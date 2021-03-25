@@ -613,6 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  t: 0
 --- !u!1001 &1079520002
 PrefabInstance:
   m_ObjectHideFlags: 0
