@@ -7,8 +7,9 @@ public class Environment : MonoBehaviour
     public float health;
     private float maxHealth = 100;
 
-    private Color healthyColor = Color.white;
-    private Color deadColor = new Color(35f/255, 23f/255, 9f/255); // dark brown color
+    private Color healthyColor = Color.green;
+    //private Color deadColor = Color.black;
+    private Color deadColor = new Color(101f/255, 67f/255, 33f/255); // dark brown color
     private Color currentColor;
 
     [Range(0, 1)] public float t;
@@ -76,12 +77,31 @@ public class Environment : MonoBehaviour
     private void RecolorEnvironment()
     {
         // update the currentColor based on the current health of the environment
-        currentColor = Color.Lerp(healthyColor, deadColor, health / maxHealth);
+        currentColor = Color.Lerp(deadColor, healthyColor, health / maxHealth);
 
         // update the color of all objects in the environment
         foreach(Transform child in transform)
         {
-            child.GetComponent<Renderer>().material.color = currentColor;
+            if(child.GetComponent<Renderer>() == null)
+            {
+                foreach (Transform child2 in child)
+                {
+                    RecolorObject(child2);
+                }
+            }
+            else
+            {
+                RecolorObject(child);
+            }
+        }
+    }
+
+    private void RecolorObject(Transform obj)
+    {
+        Material[] materials = obj.GetComponent<Renderer>().materials;
+        foreach(Material mat in materials)
+        {
+            mat.color = Color.Lerp(deadColor, mat.color, health / maxHealth);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    public float radius = 10f;
+    public float radius = 5f;
     private GameObject player;
     private bool hasInteracted = false;
 

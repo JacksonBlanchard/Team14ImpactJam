@@ -46,7 +46,7 @@ public class Food : Interactable
     {
         if(renewable)
         {
-            timer = 10f; // default 2 minutes
+            timer = 120f; // default 2 minutes
         }
         else
         {
