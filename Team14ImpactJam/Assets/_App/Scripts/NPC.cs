@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class NPC : Interactable
 {
     public GameObject canvas;
+    public string dialogue;
 
     // Start is called before the first frame update
     void Start()
     {
-        canvas.SetActive(false);
+        DeactivateUI();
     }
 
     // Update is called once per frame
@@ -21,7 +22,12 @@ public class NPC : Interactable
 
     override public void Interact()
     {
-        canvas.GetComponentInChildren<Text>().text = "you interacted with me";
+        canvas.GetComponentInChildren<Text>().text = dialogue;
         canvas.SetActive(true);
+    }
+
+    public void DeactivateUI()
+    {
+        canvas.SetActive(false);
     }
 }

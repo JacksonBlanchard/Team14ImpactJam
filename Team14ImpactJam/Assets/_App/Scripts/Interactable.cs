@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 {
     public float radius = 5f;
     private GameObject player;
-    private bool hasInteracted = false;
+    protected bool hasInteracted = false;
 
     void Awake()
     {
